@@ -438,6 +438,29 @@ namespace Mastermind
                 }
             }
         }
+
+        private void MnuNewGame_Click(object sender, RoutedEventArgs e)
+        {
+            GenerateNewCode();
+            ResetGame();
+            //Update de debug label met de nieuwe code
+            colorCodeString = string.Join(",", chosenColors);
+        }
+
+        private void MnuHighscore_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Highscore:","MasterMind Highscore", MessageBoxButton.OK);
+        }
+
+        private void MnuClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void MnuAttempts_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }

@@ -9,6 +9,17 @@
         Closing="MainWindow_Closing">
 
     <Grid>
+        <Menu Name="Hoofdmenu" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <MenuItem Header="Bestand">
+                <MenuItem Name="MnuNewGame" Header="Nieuw Spel" Click="MnuNewGame_Click"></MenuItem>
+                <MenuItem Name="MnuHighscore" Header="Highscore" Click="MnuHighscore_Click"></MenuItem>
+                <MenuItem Name="MnuClose" Header="Afsluiten" Click="MnuClose_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Settings">
+                <MenuItem Name="MnuAttempts" Header="Attempts Amount" Click="MnuAttempts_Click"></MenuItem>
+            </MenuItem>
+            
+        </Menu>
         <ComboBox Name="comboBox1" HorizontalAlignment="Left" Margin="61,75,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
         <ComboBox Name="comboBox2" HorizontalAlignment="Left" Margin="245,75,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
         <ComboBox Name="comboBox3" HorizontalAlignment="Left" Margin="442,75,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
