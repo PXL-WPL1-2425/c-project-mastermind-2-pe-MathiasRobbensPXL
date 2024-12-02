@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Reflection.Emit;
 using System.Text;
 using System.Windows;
@@ -42,6 +43,7 @@ namespace Mastermind
         private string colorCodeString = "";
 
 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -82,8 +84,9 @@ namespace Mastermind
         {
             countdownTimer.Stop();
 
+            bool attemptText = int.TryParse(attemptsTextBox.Text, out int maxAttempts);
             // Controleer of het aantal pogingen al 10 is
-            if (attempts >= 10)
+            if (attempts >= maxAttempts)
             {
                 MessageBox.Show("Je hebt het maximale aantal pogingen bereikt! Het spel is voorbij.");
                 return;  
@@ -243,7 +246,6 @@ namespace Mastermind
         }
 
         private int attemptCount = 0; // Aantal pogingen
-        private const int maxAttempts = 10; // Maximale aantal pogingen
         private bool gameWon = false; // Of de speler de code heeft gekraakt
 
         private void validateButton_Click(object sender, RoutedEventArgs e)
@@ -353,7 +355,7 @@ namespace Mastermind
             int score = 100;
             int incorrectColors = 4 - redCount - whiteCount;
             score -= (whiteCount * 1) + (incorrectColors * 2);
-            scoreLabel.Content = $"Score: {score} strafpunt(en)";
+            scoreLabel.Content = $"Score: {score}";
 
             // **Check of het spel afgelopen is**
             attemptCount++; // Verhoog de poging teller
@@ -365,6 +367,14 @@ namespace Mastermind
                 MessageBox.Show($"Gefeliciteerd! Je hebt de code gekraakt in {attemptCount} pogingen!");
                 EndGame();
                 return;
+            }
+
+
+            bool attemptText = int.TryParse(attemptsTextBox.Text, out int maxAttempts);
+
+            if (maxAttempts < 3 || maxAttempts > 20)
+            {
+                MessageBox.Show("Gelieve een getal te geven tussen 3 en 20.");
             }
 
             // Als we het aantal pogingen hebben bereikt
@@ -404,7 +414,7 @@ namespace Mastermind
             }
             else
             {
-                 Close();
+                 
             }
         }
 
@@ -453,7 +463,7 @@ namespace Mastermind
 
         private void MnuHighscore_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Highscore:","MasterMind Highscore", MessageBoxButton.OK);
+            MessageBox.Show($"Highscore: naam speler - {attemptCount} pogingen - {score}/100","MasterMind Highscore", MessageBoxButton.OK);
         }
 
         private void MnuClose_Click(object sender, RoutedEventArgs e)
@@ -463,7 +473,13 @@ namespace Mastermind
 
         private void MnuAttempts_Click(object sender, RoutedEventArgs e)
         {
-
+            string answer = Interaction.InputBox("Geef een getal", "Invoer", "10", 20);
+            while (string.IsNullOrEmpty(answer))
+            {
+                MessageBox.Show("Geef getal!", "Foutieve invoer");
+                answer = Interaction.InputBox("Geef een getal", "Invoer", "10", 20);
+            }
+            // heb gebruik gemaakt van een textbox voor het getal in te geven, dit werkt wel. Niet genoeg tijd om het fatsoenlijk te implementeren.
         }
     }
 

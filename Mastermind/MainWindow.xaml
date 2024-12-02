@@ -32,6 +32,8 @@
         <Label Name="timerLabel" Content="" HorizontalAlignment="Left" Margin="58,19,0,0" VerticalAlignment="Top" Width="116"/>
         <ListBox Name="attemptsListBox" Margin="242,303,242,0"/>
         <Label Name="scoreLabel" Content="Score: 100" HorizontalAlignment="Left" Margin="613,269,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label Name="attemptsLabel" Content="Pogingen" HorizontalAlignment="Left" Margin="61,36,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="attemptsTextBox" HorizontalAlignment="Left" Margin="126,41,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
