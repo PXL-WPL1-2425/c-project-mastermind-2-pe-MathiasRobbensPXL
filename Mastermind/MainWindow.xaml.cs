@@ -58,6 +58,10 @@ namespace Mastermind
 
             this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
         }
+        private void startgame()
+        {
+            
+        }
         // Methode om de countdown timer te starten (of opnieuw te starten)
         /// <summary>
         /// Starten en herstarten van de countdowntimer
@@ -420,24 +424,24 @@ namespace Mastermind
 
             Title = $"Mastermind - Poging {attempts}";
         }
-        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (!gameWon && attemptCount < maxAttempts)  
-            {
-                var result = MessageBox.Show("Het spel is nog niet beëindigd. Weet je zeker dat je de applicatie wilt afsluiten?",
-                                             "Beëindigen",
-                                             MessageBoxButton.YesNo,
-                                             MessageBoxImage.Warning);
-                if (result == MessageBoxResult.Yes)
-                {
-                    Application.Current.Shutdown();  
-                }
-                else
-                {
-                    e.Cancel = true; 
-                }
-            }
-        }
+        //private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        //{
+           // if (!gameWon && attemptCount < maxAttempts)  
+           // {
+              //  var result = MessageBox.Show("Het spel is nog niet beëindigd. Weet je zeker dat je de applicatie wilt afsluiten?",
+                                           //  "Beëindigen",
+                                             //MessageBoxButton.YesNo,
+                                             //MessageBoxImage.Warning);
+                //if (result == MessageBoxResult.Yes)
+                //{
+                   // Application.Current.Shutdown();  
+                //}
+                //else
+                //{
+                   // e.Cancel = true; 
+                //}
+            //}
+        //}
 
         private void MnuNewGame_Click(object sender, RoutedEventArgs e)
         {

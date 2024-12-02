@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mastermind"
         mc:Ignorable="d"
-        Title="Mastermind" Height="800" Width="800"
-        Closing="MainWindow_Closing">
+        Title="Mastermind" Height="800" Width="800">
 
     <Grid>
         <Menu Name="Hoofdmenu" HorizontalAlignment="Left" VerticalAlignment="Top">
